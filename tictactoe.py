@@ -9,7 +9,6 @@ O = "O"
 EMPTY = None
 
 
-
 def initial_state():
     """
     Returns starting state of the board.
@@ -23,7 +22,12 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    raise NotImplementedError
+
+    # raise NotImplementedError
+coutner = 0
+for i in range(3):
+    for j in range(3):
+        print(board[i][j])
 
 
 def actions(board):
