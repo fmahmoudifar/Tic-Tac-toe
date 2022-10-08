@@ -22,12 +22,12 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-
     # raise NotImplementedError
-coutner = 0
-for i in range(3):
-    for j in range(3):
-        print(board[i][j])
+    counter = 0
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if board[i][j] != EMPTY:
+                counter += 1
 
 
 def actions(board):
