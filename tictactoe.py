@@ -31,13 +31,26 @@ def player(board):
                 counto += 1
             elif board[i][j] == X:
                 countx += 1
+    if countx > counto:
+        return O
+    else:
+        return X
 
 
 def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    actions = set()
+
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if board[i][j] == EMPTY:
+                actions.add((i, j))
+
+    return actions
 
 
 def result(board, action):
