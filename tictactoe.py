@@ -2,6 +2,7 @@
 Tic Tac Toe Player
 """
 
+import copy
 import math
 
 X = "X"
@@ -43,14 +44,14 @@ def actions(board):
     """
     # raise NotImplementedError
 
-    actions = set()
+    action = set()
 
     for i in range(len(board)):
         for j in range(len(board[i])):
             if board[i][j] == EMPTY:
-                actions.add((i, j))
+                action.add((i, j))
 
-    return actions
+    return action
 
 
 def result(board, action):
@@ -58,6 +59,10 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     # raise NotImplementedError
+    if action not in actions(board):
+        raise Exception("Not a valid action")
+
+    newBoard = copy.deepcopy(board)
 
 
 def winner(board):
