@@ -63,6 +63,9 @@ def result(board, action):
         raise Exception("Not a valid action")
 
     newBoard = copy.deepcopy(board)
+    newBoard[action[0], action[1]] = player(board)
+
+    return newBoard
 
 
 def winner(board):
