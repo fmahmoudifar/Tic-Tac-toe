@@ -63,7 +63,7 @@ def result(board, action):
         raise Exception("Not a valid action")
 
     newBoard = copy.deepcopy(board)
-    newBoard[action[0], action[1]] = player(board)
+    # newBoard[action[0], action[1]] = player(board)
 
     return newBoard
 
@@ -73,6 +73,37 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
     # raise NotImplementedError
+    def check1(board, player):
+        for i in range(len(board)):
+            if board[i][0] == player and board[i][1] == player and board[i][2] == player:
+                return True
+        return False
+
+    def check2(board, player):
+        for j in range(len(board)):
+            if board[0][j] == player and board[1][j] == player and board[2][j] == player:
+                return True
+        return False
+
+    def check3(board, player):
+        w = 0
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if i == j and board[i][j] == player:
+                    w += 1
+        if w == 3:
+            return True
+        return False
+
+    def check4(board, player):
+        w = 0
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if i == j and board[i][j] == player:
+                    w += 1
+        if w == 3:
+            return True
+        return False
 
 
 def terminal(board):
