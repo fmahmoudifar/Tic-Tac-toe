@@ -99,7 +99,7 @@ def winner(board):
         w = 0
         for i in range(len(board)):
             for j in range(len(board[i])):
-                if i == j and board[i][j] == player:
+                if i == j and board[i][len(board)-i-1] == player:
                     w += 1
         if w == 3:
             return True
