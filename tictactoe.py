@@ -162,7 +162,7 @@ def minValue(board):
         w = min(w, maxValue(result(board, action)))
     return w
 
-# it takes time to computer move when we choose play as O
+# it takes time to computer move when we choose "play as O" (it has delay)
 
 
 def minimax(board):
