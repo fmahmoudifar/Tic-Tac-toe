@@ -105,6 +105,13 @@ def winner(board):
             return True
         return False
 
+    if check1(board, X) or check2(board, X) or check3(board, X) or check4(board, X):
+        return X
+    elif check1(board, O) or check2(board, O) or check3(board, O) or check4(board, O):
+        return O
+    else:
+        return None
+
 
 def terminal(board):
     """
@@ -138,7 +145,7 @@ def utility(board):
     else:
         return 0
 
-        def min(board):
+    def min(board):
         w = math.inf
         if terminal(board):
             return utility(board)
