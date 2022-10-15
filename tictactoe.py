@@ -131,9 +131,29 @@ def utility(board):
     """
     # raise NotImplementedError
 
+    if winner(board) == X:
+        return 1
+    elif winner(board) == O:
+        return -1
+    else:
+        return 0
+
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
     # raise NotImplementedError
+
+    def min(board):
+        w = math.inf
+        if terminal(board):
+            return utility(board)
+        for action in actions(board):
+            w = min(w, max(result(board, action)))
+
+    if terminal(board):
+        return None
+    elif player(board) == X:
+        game = []
+        for action in actions(board):
