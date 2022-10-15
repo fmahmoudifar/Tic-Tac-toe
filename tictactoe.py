@@ -62,7 +62,7 @@ def result(board, action):
         raise Exception('Not a valid action')
 
     newBoard = copy.deepcopy(board)
-    newBoard[action][action] = player(board)
+    newBoard[action[0]][action[1]] = player(board)
     return newBoard
 
 
@@ -145,20 +145,22 @@ def utility(board):
         return 0
 
 
-def minValue(board):
-    w = math.inf
-    if terminal(board):
-        return utility(board)
-    for action in actions(board):
-        w = minValue(w, max(result(board, action)))
-
-
 def maxValue(board):
     w = -math.inf
     if terminal(board):
         return utility(board)
     for action in actions(board):
-        w = maxValue(w, minValue(result(board, action)))
+        w = max(w, minValue(result(board, action)))
+    return w
+
+
+def minValue(board):
+    w = math.inf
+    if terminal(board):
+        return utility(board)
+    for action in actions(board):
+        w = min(w, maxValue(result(board, action)))
+    return w
 
 
 def minimax(board):
@@ -169,6 +171,7 @@ def minimax(board):
 
     if terminal(board):
         return None
+
     elif player(board) == X:
         game = []
         for action in actions(board):
