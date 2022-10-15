@@ -152,6 +152,13 @@ def minimax(board):
         for action in actions(board):
             w = min(w, max(result(board, action)))
 
+    def max(board):
+        w = -math.inf
+        if terminal(board):
+            return utility(board)
+        for action in actions(board):
+            w = max(w, min(result(board, action)))
+
     if terminal(board):
         return None
     elif player(board) == X:
