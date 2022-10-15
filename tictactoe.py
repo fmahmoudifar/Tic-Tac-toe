@@ -138,12 +138,6 @@ def utility(board):
     else:
         return 0
 
-    if terminal(board):
-        return None
-    elif player(board) == X:
-        game = []
-        # for action in actions(board):
-
 
 def minimax(board):
     """
@@ -164,3 +158,13 @@ def minimax(board):
             return utility(board)
         for action in actions(board):
             w = max(w, min(result(board, action)))
+
+    if terminal(board):
+        return None
+    elif player(board) == X:
+        game = []
+        for action in actions(board):
+            game.append([min(result(board, action)), action])
+        return sorted(game, key=lambda x: x[0], reverse=True)[0][1]
+
+    elif
