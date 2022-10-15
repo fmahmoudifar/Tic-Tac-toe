@@ -62,7 +62,7 @@ def result(board, action):
         raise Exception('Not a valid action')
 
     newBoard = copy.deepcopy(board)
-    # newBoard[action[0], action[1]] = player(board)
+    newBoard[action[0], action[1]] = player(board)
     return newBoard
 
 
@@ -86,9 +86,7 @@ def check3(board, player):
         for j in range(len(board[i])):
             if i == j and board[i][j] == player:
                 w += 1
-    if w == 3:
-        return True
-    return False
+    return w == 3
 
 
 def check4(board, player):
@@ -97,9 +95,7 @@ def check4(board, player):
         for j in range(len(board[i])):
             if i == j and board[i][len(board)-i-1] == player:
                 w += 1
-    if w == 3:
-        return True
-    return False
+    return w == 3
 
 
 def winner(board):
