@@ -30,7 +30,7 @@ def player(board):
         for j in range(len(board[i])):
             if board[i][j] == O:
                 counto += 1
-            elif board[i][j] == X:
+            if board[i][j] == X:
                 countx += 1
     if countx > counto:
         return O
@@ -50,7 +50,6 @@ def actions(board):
         for j in range(len(board[i])):
             if board[i][j] == EMPTY:
                 action.add((i, j))
-
     return action
 
 
@@ -60,7 +59,7 @@ def result(board, action):
     """
     # raise NotImplementedError
     if action not in actions(board):
-        raise Exception("Not a valid action")
+        raise Exception('Not a valid action')
 
     newBoard = copy.deepcopy(board)
     # newBoard[action[0], action[1]] = player(board)
@@ -183,5 +182,5 @@ def minimax(board):
     elif player(board) == O:
         game = []
         for action in actions(board):
-            game.append([min(result(board, action)), action])
+            game.append([max(result(board, action)), action])
         return sorted(game, key=lambda x: x[0])[0][1]
