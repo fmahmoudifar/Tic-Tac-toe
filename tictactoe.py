@@ -138,6 +138,12 @@ def utility(board):
     else:
         return 0
 
+    if terminal(board):
+        return None
+    elif player(board) == X:
+        game = []
+        # for action in actions(board):
+
 
 def minimax(board):
     """
@@ -158,9 +164,3 @@ def minimax(board):
             return utility(board)
         for action in actions(board):
             w = max(w, min(result(board, action)))
-
-    if terminal(board):
-        return None
-    elif player(board) == X:
-        game = []
-        for action in actions(board):
