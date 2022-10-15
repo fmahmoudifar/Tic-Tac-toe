@@ -118,7 +118,7 @@ def terminal(board):
         return True
 
     for i in range(len(board)):
-        for j in range(len(board(i))):
+        for j in range(len(board[i])):
             if board[i][j] == EMPTY:
                 return False
 
